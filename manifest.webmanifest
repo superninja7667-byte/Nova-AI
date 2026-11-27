@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "Nova — Sonic AI",
+  "short_name": "Nova",
+  "description": "Nova AI workspace powered by Sonic local AI.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#17171b",
+  "theme_color": "#17171b",
+  "orientation": "any",
+  "icons": [
+    { "src": "./icon.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any maskable" }
+  ]
+}
