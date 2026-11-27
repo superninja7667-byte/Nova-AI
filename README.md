@@ -4,17 +4,11 @@ Nova is a browser-based AI workspace. Sonic runs an open-weight language model l
 
 ## Website
 
-The site is published with GitHub Pages from `index.html`. The GitHub Actions workflow in `.github/workflows/deploy.yml` deploys each push to `main`.
+The site is served from `index.html` with GitHub Pages. The workflow in `.github/workflows/deploy.yml` deploys every push to `main`.
 
-### One-time Pages setup
+Website URL: https://superninja7667-byte.github.io/Nova-AI/
 
-In this repository, open **Settings → Pages → Build and deployment → Source**, then choose **GitHub Actions**. GitHub requires this repository setting before the Pages workflow can publish the site.
-
-After that, every push to `main` automatically updates the website.
-
-The project site URL will be:
-
-https://superninja7667-byte.github.io/Nova-AI/
+The repository's Pages publishing source must be set to **GitHub Actions** in Settings → Pages.
 
 ## Sonic local AI requirements
 
@@ -23,12 +17,12 @@ https://superninja7667-byte.github.io/Nova-AI/
 - Internet access for the first download of the local model and runtime.
 - Sufficient device GPU memory.
 
-After the model is downloaded, inference runs on the user's device. Device capability varies; Nova checks WebGPU before trying to load the model. Model weights are not included in this repository.
+After the model is downloaded, inference runs on the user's device. Device capability varies; Nova checks WebGPU before trying to load the model. Model weights are not stored in this repository; WebLLM downloads the selected model when Sonic is initialized.
 
 ## Installable web app
 
-Nova includes a web app manifest and a small service worker for caching the app shell. This does not cache the large model weights itself; WebLLM manages model caching in browser storage.
+Nova includes a web app manifest and a service worker for caching the app shell. The service worker does not cache large model weights; WebLLM manages model caching in browser storage.
 
 ## Development
 
-Edit `index.html` and push changes to `main`. GitHub Actions will deploy the updated site.
+Edit `index.html` and push changes to `main`. GitHub Actions deploys the updated website.
