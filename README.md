@@ -2,13 +2,22 @@
 
 Nova is a browser-based AI workspace. Sonic runs an open-weight language model locally in the browser through WebLLM and WebGPU; it does not call an AI inference API.
 
-## Website
+## Publish the website with GitHub Pages
 
-The site is served from `index.html` with GitHub Pages. The workflow in `.github/workflows/deploy.yml` deploys every push to `main`.
+Nova's complete website is in `index.html` at the root of the `main` branch.
 
-Website URL: https://superninja7667-byte.github.io/Nova-AI/
+In the repository, open **Settings → Pages** and choose:
 
-The repository's Pages publishing source must be set to **GitHub Actions** in Settings → Pages.
+1. **Source:** Deploy from a branch
+2. **Branch:** `main`
+3. **Folder:** `/(root)`
+4. Press **Save**
+
+GitHub will then publish this repository at:
+
+https://superninja7667-byte.github.io/Nova-AI/
+
+This repository uses branch publishing instead of a GitHub Actions deployment workflow. That avoids the earlier `configure-pages` error when the repository's Pages site has not been created yet.
 
 ## Sonic local AI requirements
 
@@ -17,12 +26,12 @@ The repository's Pages publishing source must be set to **GitHub Actions** in Se
 - Internet access for the first download of the local model and runtime.
 - Sufficient device GPU memory.
 
-After the model is downloaded, inference runs on the user's device. Device capability varies; Nova checks WebGPU before trying to load the model. Model weights are not stored in this repository; WebLLM downloads the selected model when Sonic is initialized.
+After the model is downloaded, inference runs on the user's device. Device capability varies; Nova checks WebGPU before trying to load the model. Model weights are downloaded by WebLLM when the selected model is initialized.
 
 ## Installable web app
 
-Nova includes a web app manifest and a service worker for caching the app shell. The service worker does not cache large model weights; WebLLM manages model caching in browser storage.
+Nova includes a web app manifest and a small service worker for caching the app shell. The service worker does not cache large model weights; WebLLM manages model caching in browser storage.
 
 ## Development
 
-Edit `index.html` and push changes to `main`. GitHub Actions deploys the updated website.
+Edit `index.html` and push changes to `main`. GitHub Pages will publish changes from the root of the branch.
